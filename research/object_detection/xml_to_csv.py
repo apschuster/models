@@ -24,17 +24,24 @@ def xml_to_csv(path):
     xml_df = pd.DataFrame(xml_list, columns=column_name)
 
     names=[]
-    for i in xml_df['filename']:
-        names.append(i+'.jpg')
-    xml_df['filename']=names
+    # for i in xml_df['filename']:
+    #     names.append(i+'.jpg')
+    # xml_df['filename']=names
 
     return xml_df
 
 
 def main():
     for folder in ['train', 'test']:
-        image_path = os.path.join(os.getcwd(), ('images/' + folder))
-        xml_df = xml_to_csv(image_path)
-        xml_df.to_csv(('images/'+folder+'_labels.csv'), index=None)
+        if(folder== 'train'):
+            image_path = r'C:\Users\alexs\OneDrive\Documents\GitHub\models\research\images\train'
+            xml_df = xml_to_csv(image_path)
+            xml_df.to_csv((r'C:\Users\alexs\OneDrive\Documents\GitHub\models\research\images\train_labels.csv'), index=None)
+        else:
+            image_path = r'C:\Users\alexs\OneDrive\Documents\GitHub\models\research\images\test'
+            xml_df = xml_to_csv(image_path)
+            xml_df.to_csv((r'C:\Users\alexs\OneDrive\Documents\GitHub\models\research\images\test_labels.csv'), index=None)
+        
+        
         print('Successfully converted xml to csv.')
 main()

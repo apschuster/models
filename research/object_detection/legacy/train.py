@@ -44,7 +44,8 @@ Example usage:
 import functools
 import json
 import os
-import tensorflow as tf
+#import tensorflow as tf
+import tensorflow.compat.v1 as tf  #using tensorflow 2.X, need to do this in order for it to work since this is tensorflow 1.X functionality
 from tensorflow.contrib import framework as contrib_framework
 
 from object_detection.builders import dataset_builder
