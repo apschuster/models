@@ -26,13 +26,8 @@ if StrictVersion(tf.__version__) < StrictVersion('1.9.0'):
   raise ImportError('Please upgrade your TensorFlow installation to v1.9.* or later!')
 
 from utils import label_map_util
-<<<<<<< HEAD
-# path= r'C:\Users\alexs\OneDrive\Documents\GitHub\models\research\object_detection'
-# os.chdir(path)
-=======
 #path= r'C:\Users\alexs\OneDrive\Documents\GitHub\models\research\object_detection'
 #os.chdir(path)
->>>>>>> 0c44009f64391f716f8c3803d3f6bdad828cfb24
 from utils import visualization_utils as vis_util
 
 #This is the .csv file that holds a classifer for what the actual image is (cardigan or pembroke) so 
@@ -129,8 +124,6 @@ for image_path in TEST_IMAGE_PATHS:
   # Actual detection.
   output_dict = run_inference_for_single_image(image, detection_graph)
 
-  
-
   # Visualization of the results of a detection.
   vis_util.visualize_boxes_and_labels_on_image_array(
       image,
@@ -142,8 +135,6 @@ for image_path in TEST_IMAGE_PATHS:
       use_normalized_coordinates=True,
       line_thickness=8)
 
-
-
   #Testing/output purposes
   predictedBreed='none'
   actualBreed= corgiClassLabels[0][count-1]
@@ -154,7 +145,6 @@ for image_path in TEST_IMAGE_PATHS:
   
   if(actualBreed==predictedBreed):
     correct+=1
-
   
   print("Corgi Image:",count)
   print("Predicted Breed:",predictedBreed," Actual Breed: ",actualBreed)
